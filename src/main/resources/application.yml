@@ -4,11 +4,39 @@ server:
 spring:
   application:
     name: UC-REQUEST-AUTH-APP
+  datasource:
+    url: jdbc:mysql://localhost:3306/urbancommittee
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      idle-timeout: 30000
+      max-lifetime: 1800000
+      connection-timeout: 30000
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
 
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8080/eureka/
+
+
+
+
+# App Properties
+pineapple:
+          app:
+            jwtSecret: 357638792F423F4428472B4B6250655368566D597133743677397A2443264629
+            jwtExpirationMs: 86400000
 
 
 
